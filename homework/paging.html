@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Table Paging</title>
+
+    <link href="css/bootstrap.min.css" rel="stylesheet">
+    <script src="https://code.jquery.com/jquery-3.1.0.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+    <link href="https://netdna.bootstrapcdn.com/twitter-bootstrap/2.3.2/css/bootstrap-combined.min.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+<div id="app">
+    <h4> ===== Vue Table Ajax Web =====</h4>
+    <hr>
+
+    <div>Filter： <input type="text" v-model="filter_name"></div>
+
+    <table class="table table-condensed">
+        <tr style="background-color: #4cae4c">
+            <th>#</th>
+            <th>name</th>
+            <th>age</th>
+            <th>gender </th>
+        </tr>
+        <tr v-for="(r, index) in filteredRows.slice(pageStart, pageStart + countOfPage)">
+            <td>{{ (currPage-1) * countOfPage + index + 1 }}</td>
+            <td>{{ r.name }}</td>
+            <td>{{ r.age }}</td>
+            <td>{{ r.gender }}</td>
+        </tr>
+    </table>
+
+    <div class="pagination">
+        <ul>
+            <li v-bind:class="{'disabled': (currPage === 1)}"
+                @click.prevent="setPage(currPage-1)"><a href="#">Prev</a></li>
+            <li v-for="n in totalPage"
+                v-bind:class="{'active': (currPage === (n))}"
+                @click.prevent="setPage(n)"><a href="#">{{n}}</a></li>
+            <li v-bind:class="{'disabled': (currPage === totalPage)}"
+                @click.prevent="setPage(currPage+1)"><a href="#">Next</a></li>
+        </ul>
+    </div>
+</div>
+
+<script>
+
+    var app = new Vue({
+        el: '#app',
+        data: {
+            rows: [],
+            countOfPage: 5,
+            currPage: 1,
+            filter_name: ''
+        },
+        computed: {
+            filteredRows: function(){
+                var filter_name = this.filter_name.toLowerCase();
+                this.currPage = 1;
+
+                return ( this.filter_name.trim() !== '' ) ?
+                    this.rows.filter(function(d){ return d.name.toLowerCase().indexOf(filter_name) > -1; }) :
+                    this.rows;
+            },
+            pageStart: function(){
+                return (this.currPage - 1) * this.countOfPage;
+            },
+            totalPage: function(){
+                return Math.ceil(this.filteredRows.length / this.countOfPage);
+            }
+        },
+        methods: {
+            setPage: function(idx){
+                if( idx <= 0 || idx > this.totalPage ){
+                    return;
+                }
+                this.currPage = idx;
+            },
+        },
+        created: function(){
+            var self = this;
+            $.get('http://www.json-generator.com/api/json/get/cknklDscqG?indent=2', function(data){
+                self.rows = data;
+            });
+        }
+    });
+</script>
+
+</body>
+</html>
