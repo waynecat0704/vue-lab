@@ -1,0 +1,190 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>FirstVueWeb</title>
+    <link href="css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="css/jquery.toast.css">
+    <link rel="stylesheet" href="css/css.css">
+
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+
+</head>
+<body>
+<div class="container">
+
+    <div class="row">
+
+        <div class="col-sm-4" id="newsDiv">
+            <h2>Vue Web
+                <span class="pull-right">
+                    <button id="newItem" class="btn btn-success btn-sm" v-on:click="add">
+                        <span class="glyphicon glyphicon-plus" aria-hidden="true"></span>
+                    </button>
+                </span>
+            </h2>
+            <h5>訊號源({{ message }})</h5>
+            <hr>
+
+            <ul id="latestNews" class="list-group">
+                <li class="list-group-item" v-for="(item, index) in newsList">
+                    {{ item.title }} [{{ item.ymd }}]
+                    <span class="pull-right">
+                        <button class="btn btn-info btn-xs editItem" v-on:click="edit(index)">
+                            <span class="glyphicon glyphicon-pencil" aria-hidden="true"></span>
+                        </button>&nbsp;
+                        <button class="btn btn-danger btn-xs deleteItem" v-on:click="del(index)">
+                            <span class="glyphicon glyphicon-remove" aria-hidden="true"></span>
+                        </button>
+
+                    </span>
+                </li>
+            </ul>
+        </div>
+
+        <div class="col-sm-4">
+            &nbsp;
+        </div>
+
+        <div class="col-sm-4">
+            &nbsp;
+        </div>
+
+    </div>  <!-- end of row -->
+
+</div> <!-- end of container -->
+
+
+
+
+<!-- 對話盒 -->
+<div id="newsModal" class="modal fade" role="dialog">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal">&times;</button>
+                <h5>新增/修改</h5>
+            </div>
+            <div class="modal-body">
+                <form>
+                    <div class="form-group">
+                        <label for="titleTextBox">
+                            <span class="glyphicon glyphicon-bullhorn"></span>
+                            標題
+                        </label>
+                        <input type="text"
+                               id="titleTextBox"
+                               class="form-control"
+                               placeholder="請輸入標題" v-model="title" />
+                    </div>
+
+                    <div class="form-group">
+                        <label for="ymdTextBox">
+                            <span class="glyphicon glyphicon-time"></span>
+                            日期
+                        </label>
+
+                        <input type="text"
+                               id="ymdTextBox"
+                               class="form-control"
+                               placeholder="yyyy-mm-dd 例如: 2017-05-20" v-model="ymd">
+                    </div>
+                </form>
+            </div>
+            <div class="modal-footer">
+                <div class="pull-right">
+                    <button type="button"
+                            id="okButton"
+                            class="btn btn-success" v-on:click="ok">
+                        <span class="glyphicon glyphicon-ok"></span> 確定
+                    </button>
+                    <button type="button"
+                            id="cancelButton"
+                            class="btn btn-default"
+                            data-dismiss="modal">
+                        <span class="glyphicon glyphicon-remove"></span> 取消
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- ========== UI 與 JavaScript 分隔線 ========== -->
+
+
+<script src="js/jquery.js"></script>
+<script src="js/bootstrap.min.js"></script>
+<script type="text/javascript" src="js/jquery.toast.js"></script>
+
+<script>
+    var app1 = new Vue({
+        el: "#newsDiv",
+        data: {
+            message: 100,
+            newsList: [
+                { title : "News A", ymd: '2019-07-01'},
+                { title : "News B", ymd: '2019-07-02'},
+                { title : "News C", ymd: '2019-07-03'}
+            ]
+        },
+        methods: {
+            add: function(){
+                app2.index = -1;
+                app2.title = "";
+                app2.ymd = "";
+                $("#newsModal").modal( { backdrop: "static" } );
+            },
+            edit: function(idx){
+                app2.index = idx;
+                app2.title = this.newsList[idx].title;
+                app2.ymd = this.newsList[idx].ymd;
+
+                $("#newsModal").modal( { backdrop: "static" } );
+            },
+            del: function(index){
+                this.newsList.splice(index, 1);
+            }
+        },
+        created: function(){
+            list();
+        }
+    });
+
+    var app2 = new Vue({
+        el: "#newsModal",
+        data: {
+            title: "",
+            ymd : "",
+            newsId : 0
+        },
+        methods: {
+            ok: function () {
+                let idx = this.index;
+
+                if(idx >= 0){
+
+                    app1.newsList[idx].title = this.title;
+                    app1.newsList[idx].ymd = this.ymd;
+
+                }else{
+                    app1.newsList.push({
+                        title: this.title,
+                        ymd: this.ymd,
+                    })
+
+                }
+
+                $("#newsModal").modal("hide");
+            }
+        }
+    });
+
+    function list(){
+
+    }
+
+</script>
+
+</body>
+</html>
