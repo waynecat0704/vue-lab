@@ -12,9 +12,9 @@
         <td>template</td>
         <td>
              使用不同Vue Template Bind Component <br />
-             Inline-template.html <br />
-             string-template.html <br />
-             x-template.html  <br /><br />
+             *Inline-template.html <br />
+             *string-template.html <br />
+             *x-template.html  <br /><br />
              [參考] (https://vuejsdevelopers.com/2017/03/24/vue-js-component-templates/)
         </td>
     </tr>
