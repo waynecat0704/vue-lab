@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>ToDo-List</title>
+
+    <link rel="stylesheet" type="text/css" href="css/reset-font-min.css">
+    <link rel="stylesheet" type="text/css" href="css/clearfix.css">
+    <link rel="stylesheet" type="text/css" href="css/style.css">
+
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+
+</head>
+<body>
+<div id="app" class="todos">
+    <h1 class="todo-heading" style="font-size: medium">待辦清單</h1>
+    <hr>
+    <div class="add-new-item">
+        <input type="text" v-model="newTodoText" @keyup.enter="add" placeholder="加入工作" class="new-item" />
+    </div>
+    <ul class="todo-list" v-if="!(incompleteCount === 0 && filter === 'show_all')">
+        <todo-item v-for="(todo, key, index) in list" :todo="todo" :index="key"
+                   :filter="filter" class="todo-item" @remove="del(key)">
+
+        </todo-item>
+    </ul>
+    <div class="msg" v-if="incompleteCount === 0 && filter === 'show_all'">完成所有的項目！</div>
+
+    <div class="control">
+        <a @click="setFilter('show_all')" class="btn"
+           :class="{ active: filter === 'show_all'}">全部 ({{ allCount }})</a>
+        <a @click="setFilter('show_completed')"
+           class="btn" :class="{ active: filter === 'show_completed'}">已完成 ({{ completedCount }})</a>
+        <a @click="setFilter('show_incomplete')"
+           class="btn" :class="{ active: filter === 'show_incomplete'}">未完成 ({{ incompleteCount }})</a>
+    </div>
+
+    <input type="hidden" v-model="todosData">
+</div>
+
+<script type="text/x-template" id="todo-component">
+    <li>
+        <input type="checkbox" @change="updateStatus(todo)" :checked="todo.isCompleted">
+        <label v-if="!todo.isEdit" :class="[todo.isCompleted ? 'completed' : '']">{{ todo.text }}</label>
+        <input type="text" v-if="todo.isEdit" @keyup.enter="updateTodo($event, todo)" v-model="todo.text" />
+        <a @click="editTodo(todo)" v-if="!todo.isEdit" class="btn">編輯</a>
+        <a @click="remove(index)" class="btn">刪除</a>
+    </li>
+</script>
+
+<script src="lib/vue.js"></script>
+<script src="js/script.js"></script>
+
+</body>
+</html>

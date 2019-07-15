@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>X-Template</title>
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+
+</head>
+<body>
+<div id="app">
+    <button-counter></button-counter>
+    <button-counter></button-counter>
+</div>
+
+<script type="text/x-template" id="my-component">
+    <button @click="count++">You clicked me {{ count }} times.</button>
+</script>
+
+<script>
+    Vue.component('button-counter', {
+        data: function () {
+            return {
+                count: 0
+            }
+        },
+        template: '#my-component'
+    })
+
+    var app = new Vue({
+        el: '#app'
+    });
+</script>
+</body>
+</html>

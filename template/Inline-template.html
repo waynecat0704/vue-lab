@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Inline Template</title>
+
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+
+</head>
+<body>
+    <div id="app">
+        <my-component inline-template>
+            <button @click="count++">You clicked me {{ count }} times.</button>
+        </my-component>
+    </div>
+    <script>
+        Vue.component('my-component', {
+            data() {
+                return { checked: false, title: 'Check me' , count: 0}
+            },
+            methods: {
+                check() { this.checked = !this.checked; }
+            }
+        });
+
+        var app = new Vue({
+            el: '#app'
+        });
+    </script>
+</body>
+</html>
