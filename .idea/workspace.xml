@@ -2,9 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="343cbf38-74c1-495c-90c8-726cf395f73d" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/workshop/Lab_Form.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/workshop/Tree_View.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/todo/js/script.js" beforeDir="false" afterPath="$PROJECT_DIR$/todo/js/script.js" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/.tmp/" />
     <ignored path="$PROJECT_DIR$/temp/" />
@@ -59,11 +57,11 @@
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="false">
+      <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/todo/js/script.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="444">
-              <caret line="135" selection-start-line="135" selection-end-line="135" />
+            <state relative-caret-position="406">
+              <caret line="49" column="23" selection-start-line="49" selection-start-column="23" selection-end-line="49" selection-end-column="23" />
             </state>
           </provider>
         </entry>
@@ -80,8 +78,8 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/todo/index.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="190">
-              <caret line="10" column="72" lean-forward="true" selection-start-line="10" selection-start-column="4" selection-end-line="10" selection-end-column="72" />
+            <state relative-caret-position="171">
+              <caret line="9" lean-forward="true" selection-start-line="9" selection-end-line="9" />
               <folding>
                 <element signature="n#style#0;n#h1#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
               </folding>
@@ -98,11 +96,11 @@
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="true">
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/workshop/Tree_View.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="323">
-              <caret line="80" column="10" selection-start-line="80" selection-start-column="10" selection-end-line="80" selection-end-column="10" />
+            <state relative-caret-position="228">
+              <caret line="75" column="19" lean-forward="true" selection-start-line="75" selection-start-column="19" selection-end-line="75" selection-end-column="19" />
             </state>
           </provider>
         </entry>
@@ -151,10 +149,10 @@
         <option value="$PROJECT_DIR$/template/string-template.html" />
         <option value="$PROJECT_DIR$/template/Inline-template.html" />
         <option value="$PROJECT_DIR$/template/JSX-template.html" />
-        <option value="$PROJECT_DIR$/todo/js/script.js" />
         <option value="$PROJECT_DIR$/todo/index.html" />
         <option value="$PROJECT_DIR$/workshop/Lab_Form.html" />
         <option value="$PROJECT_DIR$/workshop/Tree_View.html" />
+        <option value="$PROJECT_DIR$/todo/js/script.js" />
       </list>
     </option>
   </component>
@@ -253,12 +251,12 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1563073162092</updated>
-      <workItem from="1563073163328" duration="21776000" />
+      <workItem from="1563073163328" duration="22189000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="21776000" />
+    <option name="totallyTimeSpent" value="22189000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-7" y="-7" width="1295" height="695" extended-state="6" />
@@ -383,27 +381,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/todo/js/script.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="444">
-          <caret line="135" selection-start-line="135" selection-end-line="135" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/todo/lib/vue.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="152">
           <caret line="12" lean-forward="true" selection-start-line="12" selection-end-line="12" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/todo/index.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="190">
-          <caret line="10" column="72" lean-forward="true" selection-start-line="10" selection-start-column="4" selection-end-line="10" selection-end-column="72" />
-          <folding>
-            <element signature="n#style#0;n#h1#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -414,10 +395,27 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/todo/index.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="171">
+          <caret line="9" lean-forward="true" selection-start-line="9" selection-end-line="9" />
+          <folding>
+            <element signature="n#style#0;n#h1#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/workshop/Tree_View.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="323">
-          <caret line="80" column="10" selection-start-line="80" selection-start-column="10" selection-end-line="80" selection-end-column="10" />
+        <state relative-caret-position="228">
+          <caret line="75" column="19" lean-forward="true" selection-start-line="75" selection-start-column="19" selection-end-line="75" selection-end-column="19" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/todo/js/script.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="406">
+          <caret line="49" column="23" selection-start-line="49" selection-start-column="23" selection-end-line="49" selection-end-column="23" />
         </state>
       </provider>
     </entry>
