@@ -20,7 +20,7 @@
     </tr>
     <tr>
         <td>todo</td>
-        <td>實作待辦事項範例</td>
+        <td>[作業] 實作待辦事項</td>
     </tr>
     <tr>
         <td>workshop</td>
