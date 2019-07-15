@@ -20,7 +20,7 @@
     </tr>
     <tr>
         <td>todo</td>
-        <td>[作業] 實作待辦事項，並整合jquery toast</td>
+        <td>[作業] 實作待辦事項(新增、修改、刪除)，並整合jquery toast</td>
     </tr>
     <tr>
         <td>workshop</td>
