@@ -20,10 +20,10 @@
     </tr>
     <tr>
         <td>todo</td>
-        <td>Foo</td>
+        <td>實作待辦事項範例</td>
     </tr>
     <tr>
         <td>workshop</td>
-        <td>Foo</td>
+        <td>讀取YesNo WebAPI、與表單和Vue整合</td>
     </tr>
 </table>
