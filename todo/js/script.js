@@ -29,7 +29,7 @@ Vue.component( 'todo-item' , {
   }
 });
 
-var app = new Vue({
+let app = new Vue({
   el: '#app',
   data: {
     todos: {
@@ -72,14 +72,14 @@ var app = new Vue({
       return Object.keys(this.todos).length;
     },
     completedCount: function() {
-      var _this = this;
+      let _this = this;
 
       return Object.keys(this.todos).filter(function(value) {
         return _this.todos[value].isCompleted
       }).length;
     },
     incompleteCount: function() {
-      var _this = this;
+      let _this = this;
 
       return Object.keys(this.todos).filter(function(value) {
         return !_this.todos[value].isCompleted
@@ -88,7 +88,7 @@ var app = new Vue({
   },
   methods: {
     add: function() {
-      var id = this._uuid();
+      let id = this._uuid();
 
       Vue.set(this.todos, id, {
         uuid: id,
@@ -106,18 +106,18 @@ var app = new Vue({
       this.filter = filter;
     },
     _uuid: function() {
-      var d = Date.now();
+      let d = Date.now();
       if (typeof performance !== 'undefined' && typeof performance.now === 'function'){
         d += performance.now(); //use high-precision timer if available
       }
       return 'xxxxxxxx-xxxx-4xxx-yxxx-xxxxxxxxxxxx'.replace(/[xy]/g, function (c) {
-        var r = (d + Math.random() * 16) % 16 | 0;
+        let r = (d + Math.random() * 16) % 16 | 0;
         d = Math.floor(d / 16);
         return (c === 'x' ? r : (r & 0x3 | 0x8)).toString(16);
       });
     },
     _getTodos: function(isCompleted) {
-      var list = {};
+      let list = {};
 
       for(var index in this.todos) {
         if(this.todos[index].isCompleted === isCompleted) {

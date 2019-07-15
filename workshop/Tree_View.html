@@ -24,14 +24,22 @@
     </style>
 </head>
 <body>
+
+<h3>Tree View</h3>
+<hr />
+
 <ul id="lab">
     <tree-item v-bind:item="itemData"></tree-item>
 </ul>
 
 <script type="text/x-template" id="item-template">
     <li>
-        <div>{{item.text}}</div>
-        <ul>
+        <div :class="{bold: isFolder}"
+             @click="toggle">
+            {{item.text}}
+            <span v-if="isFolder">[{{ isOpen ? '-' : '+' }}]</span>
+        </div>
+        <ul v-show="isOpen" v-if="isFolder">
             <tree-item v-bind:item="itemData"
                        v-for="itemData in item.children">
             </tree-item>
@@ -42,13 +50,30 @@
 <script>
     Vue.component('tree-item', {
         template: '#item-template',
-        props: ['item']
+        props: ['item'],
+        data: function (){
+            return {
+                isOpen: false
+            }
+        },
+        computed: {
+            isFolder: function () {
+                return this.item.children &&
+                    this.item.children.length
+            }
+        },
+        methods: {
+            toggle: function () {
+                if (this.isFolder) {
+                    this.isOpen = !this.isOpen
+                }
+            }
+        }
     });
 
     let labApp = new Vue({
         el: '#lab',
         data: {
-            isOpen: false,
             itemData: {
                 text: "root",
                 children: [
@@ -71,17 +96,6 @@
                         ]
                     }
                 ]
-            }
-        },
-        computed: {
-            isFolder: function () {
-                return this.item.children &&
-                    this.item.children.length
-            }
-        },
-        toggle: function () {
-            if (this.isFolder) {
-                this.isOpen = !this.isOpen
             }
         }
     })
