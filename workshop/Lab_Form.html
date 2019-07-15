@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Lab Form</title>
+
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+
+</head>
+<body>
+    <form method="post" class="form-horizontal" id="lab">
+        <fieldset>
+
+            <!-- Form Name -->
+            <legend>Lab Form</legend>
+
+            <!-- Multiple Checkboxes -->
+            <div class="form-group">
+                <label class="col-md-4 control-label" for="cities">城市:</label>
+                <div class="col-md-4">
+                    <div class="checkbox">
+                        <label for="cities-0">
+                            <input type="checkbox" v-model="cities" name="cities[]" id="cities-0" value="2">
+                            台北
+                        </label>
+                    </div>
+                    <div class="checkbox">
+                        <label for="cities-1">
+                            <input type="checkbox" v-model="cities" name="cities[]" id="cities-1" value="4">
+                            台中
+                        </label>
+                    </div>
+                    <div class="checkbox">
+                        <label for="cities-2">
+                            <input type="checkbox" v-model="cities" name="cities[]" id="cities-2" value="6">
+                            台南
+                        </label>
+                    </div>
+                </div>
+            </div>
+
+            <hr />
+
+            <div class="form-group">
+                <label class="col-md-4 control-label" for="bloodType">Blood type:</label>
+                <div class="col-md-4">
+                    <label class="radio-inline" for="bloodType-0">
+                        <input type="radio" v-model="bloodType" name="bloodType" id="bloodType-0" value="1" checked="checked">
+                        A
+                    </label>
+                    <label class="radio-inline" for="bloodType-1">
+                        <input type="radio" v-model="bloodType" name="bloodType" id="bloodType-1" value="2" checked>
+                        B
+                    </label>
+                    <label class="radio-inline" for="bloodType-2">
+                        <input type="radio" v-model="bloodType" name="bloodType" id="bloodType-2" value="3">
+                        AB
+                    </label>
+                    <label class="radio-inline" for="bloodType-3">
+                        <input type="radio" v-model="bloodType" name="bloodType" id="bloodType-3" value="4">
+                        O
+                    </label>
+                </div>
+            </div>
+            <hr />
+            <div class="form-group">
+                <label class="col-md-4 control-label" for="city">城市:</label>
+                <div class="col-md-4">
+                    <select id="city" v-model="city" name="city" class="form-control">
+                        <option value="2">台北</option>
+                        <option value="4">台中</option>
+                        <option value="6">台南</option>
+                    </select>
+                </div>
+            </div>
+
+            <hr />
+            <div class="form-group">
+                <label class="col-md-4 control-label" for="title">Text:</label>
+                <div class="col-md-4">
+                    <input v-model.lazy="title" id="title" name="title" type="text" placeholder="" class="form-control input-md">
+
+                </div>
+            </div>
+
+            <hr />
+
+            <!-- Textarea -->
+            <div class="form-group">
+                <label class="col-md-4 control-label" for="description">Description</label>
+                <div class="col-md-4">
+                    <textarea v-model="description" class="form-control" id="description" name="description"></textarea>
+                </div>
+            </div>
+
+            <hr />
+
+            <div class="form-group">
+                <label class="col-md-4 control-label" for="okButton"></label>
+                <div class="col-md-4">
+                    <button id="okButton" name="okButton" class="btn btn-primary">OK</button>
+                </div>
+            </div>
+
+        </fieldset>
+        <h3 v-html="title">{{title}}</h3>
+        <h3>{{cities}}</h3>
+        <h3>BloodType: {{ bloodType }}</h3>
+        <h3>{{city}}</h3>
+        <div v-html="htmlLineBreak"></div>
+
+    </form>
+
+    <script>
+        var labApp = new Vue({
+            el: "#lab",
+            data: {
+                title: "Lazy binding",
+                cities: [ "2", "6" ],
+                bloodType: 1,
+                city: 6,
+                description: "line1\nline2"
+            },
+            mounted() {
+                this.bloodType = 2;
+            },
+            computed: {
+                htmlLineBreak() {
+                    return this.description.replace(/\r\n|\r|\n/g,"<br />");
+                }
+            }
+        })
+    </script>
+</body>
+</html>

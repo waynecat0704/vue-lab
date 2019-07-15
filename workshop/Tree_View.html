@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Tree View</title>
+
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+    <style>
+        body {
+            font-family: Menlo, Consolas, monospace;
+            color: #444;
+        }
+        .item {
+            cursor: pointer;
+        }
+        .bold {
+            font-weight: bold;
+        }
+        ul {
+            padding-left: 1em;
+            line-height: 1.5em;
+            list-style-type: dot;
+        }
+    </style>
+</head>
+<body>
+<ul id="lab">
+    <tree-item v-bind:item="itemData"></tree-item>
+</ul>
+
+<script type="text/x-template" id="item-template">
+    <li>
+        <div>{{item.text}}</div>
+        <ul>
+            <tree-item v-bind:item="itemData"
+                       v-for="itemData in item.children">
+            </tree-item>
+        </ul>
+    </li>
+</script>
+
+<script>
+    Vue.component('tree-item', {
+        template: '#item-template',
+        props: ['item']
+    });
+
+    let labApp = new Vue({
+        el: '#lab',
+        data: {
+            isOpen: false,
+            itemData: {
+                text: "root",
+                children: [
+                    {
+                        text: "A",
+                        children: [
+                        ]
+                    },
+                    {
+                        text: "B",
+                        children: [
+                            { text: "B-1", children: [] },
+                            { text: "B-2", children: [] },
+                            { text: "B-3", children: [] }
+                        ]
+                    },
+                    {
+                        text: "C",
+                        children: [
+                        ]
+                    }
+                ]
+            }
+        },
+        computed: {
+            isFolder: function () {
+                return this.item.children &&
+                    this.item.children.length
+            }
+        },
+        toggle: function () {
+            if (this.isFolder) {
+                this.isOpen = !this.isOpen
+            }
+        }
+    })
+</script>
+</body>
+</html>

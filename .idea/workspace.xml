@@ -2,9 +2,9 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="343cbf38-74c1-495c-90c8-726cf395f73d" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/todo/lib/vue.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/workshop/Lab_Form.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/workshop/Tree_View.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/todo/js/script.js" beforeDir="false" afterPath="$PROJECT_DIR$/todo/js/script.js" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/.tmp/" />
     <ignored path="$PROJECT_DIR$/temp/" />
@@ -78,22 +78,31 @@
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/homework/css/css.css">
+        <entry file="file://$PROJECT_DIR$/todo/index.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="209">
-              <caret line="11" selection-start-line="11" selection-end-line="11" />
+            <state relative-caret-position="190">
+              <caret line="10" column="72" lean-forward="true" selection-start-line="10" selection-start-column="4" selection-end-line="10" selection-end-column="72" />
+              <folding>
+                <element signature="n#style#0;n#h1#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/workshop/Lab_Form.html">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="152">
+              <caret line="105" column="41" selection-start-line="105" selection-start-column="41" selection-end-line="105" selection-end-column="41" />
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/todo/index.html">
+        <entry file="file://$PROJECT_DIR$/workshop/Tree_View.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="240">
-              <caret line="15" column="64" lean-forward="true" selection-start-line="15" selection-start-column="64" selection-end-line="15" selection-end-column="64" />
-              <folding>
-                <element signature="n#style#0;n#h1#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
-              </folding>
+            <state relative-caret-position="323">
+              <caret line="80" column="10" selection-start-line="80" selection-start-column="10" selection-end-line="80" selection-end-column="10" />
             </state>
           </provider>
         </entry>
@@ -121,8 +130,8 @@
     <findStrings>
       <find>updateTodo</find>
       <find>allCount</find>
-      <find>todosData</find>
       <find>add</find>
+      <find>todosData</find>
     </findStrings>
   </component>
   <component name="Git.Settings">
@@ -144,6 +153,8 @@
         <option value="$PROJECT_DIR$/template/JSX-template.html" />
         <option value="$PROJECT_DIR$/todo/js/script.js" />
         <option value="$PROJECT_DIR$/todo/index.html" />
+        <option value="$PROJECT_DIR$/workshop/Lab_Form.html" />
+        <option value="$PROJECT_DIR$/workshop/Tree_View.html" />
       </list>
     </option>
   </component>
@@ -192,6 +203,11 @@
               <item name="todo" type="462c0819:PsiDirectoryNode" />
               <item name="lib" type="462c0819:PsiDirectoryNode" />
             </path>
+            <path>
+              <item name="vue-lab" type="b2602c69:ProjectViewProjectNode" />
+              <item name="vue-lab" type="462c0819:PsiDirectoryNode" />
+              <item name="workshop" type="462c0819:PsiDirectoryNode" />
+            </path>
           </expand>
           <select />
         </subPane>
@@ -237,12 +253,12 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1563073162092</updated>
-      <workItem from="1563073163328" duration="17307000" />
+      <workItem from="1563073163328" duration="21776000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="17307000" />
+    <option name="totallyTimeSpent" value="21776000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-7" y="-7" width="1295" height="695" extended-state="6" />
@@ -367,13 +383,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/todo/lib/vue.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="152">
-          <caret line="12" lean-forward="true" selection-start-line="12" selection-end-line="12" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/todo/js/script.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="444">
@@ -381,13 +390,34 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/todo/lib/vue.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="152">
+          <caret line="12" lean-forward="true" selection-start-line="12" selection-end-line="12" />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/todo/index.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="240">
-          <caret line="15" column="64" lean-forward="true" selection-start-line="15" selection-start-column="64" selection-end-line="15" selection-end-column="64" />
+        <state relative-caret-position="190">
+          <caret line="10" column="72" lean-forward="true" selection-start-line="10" selection-start-column="4" selection-end-line="10" selection-end-column="72" />
           <folding>
             <element signature="n#style#0;n#h1#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/workshop/Lab_Form.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="152">
+          <caret line="105" column="41" selection-start-line="105" selection-start-column="41" selection-end-line="105" selection-end-column="41" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/workshop/Tree_View.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="323">
+          <caret line="80" column="10" selection-start-line="80" selection-start-column="10" selection-end-line="80" selection-end-column="10" />
         </state>
       </provider>
     </entry>
