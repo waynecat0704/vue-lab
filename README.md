@@ -27,8 +27,3 @@
         <td>讀取YesNo WebAPI、與表單和Vue整合、TreeView</td>
     </tr>
 </table>
-
-```javascript
-var s = "JavaScript syntax highlighting";
-alert(s);
-```
