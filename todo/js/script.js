@@ -4,8 +4,8 @@ Vue.component( 'todo-item' , {
     <input type="checkbox" @change="updateStatus(todo)" :checked="todo.isCompleted">
     <label v-if="!todo.isEdit" :class="[todo.isCompleted ? 'completed' : '']">{{ todo.text }}</label>
     <input type="text" v-if="todo.isEdit" @keyup.enter="updateTodo($event, todo)" v-model="todo.text" />
-    <a @click="editTodo(todo)" v-if="!todo.isEdit" class="btn">編輯</a>
-    <a @click="remove(index)" class="btn">刪除</a>
+    <a @click="editTodo(todo)" v-if="!todo.isEdit" class="btn">Edit</a>
+    <a @click="remove(index)" class="btn">Delete</a>
   </li>`,
   methods: {
     remove: function(index) {
@@ -88,16 +88,20 @@ let app = new Vue({
   },
   methods: {
     add: function() {
-      let id = this._uuid();
+      if(this.newTodoText.length == 0){
+        showToast("Hint", "你在開玩笑嗎？至少輸入一個字！");
+      }else{
+        let id = this._uuid();
 
-      Vue.set(this.todos, id, {
-        uuid: id,
-        text: this.newTodoText,
-        isCompleted: false,
-        isEdit: false
-      });
+        Vue.set(this.todos, id, {
+          uuid: id,
+          text: this.newTodoText,
+          isCompleted: false,
+          isEdit: false
+        });
 
-      this.newTodoText = '';
+        this.newTodoText = '';
+      }
     },
     del: function(index) {
       Vue.delete(this.todos, index);

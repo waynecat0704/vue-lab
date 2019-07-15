@@ -4,19 +4,21 @@
     <meta charset="UTF-8">
     <title>ToDo-List</title>
 
+    <link rel="stylesheet" href="css/jquery.toast.css">
     <link rel="stylesheet" type="text/css" href="css/reset-font-min.css">
     <link rel="stylesheet" type="text/css" href="css/clearfix.css">
     <link rel="stylesheet" type="text/css" href="css/style.css">
 
-    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+    <script src="js/jquery.js"></script>
+    <script type="text/javascript" src="js/jquery.toast.js"></script>
 
 </head>
 <body>
 <div id="app" class="todos">
-    <h1 class="todo-heading" style="font-size: medium">待辦清單</h1>
+    <h1 class="todo-heading" style="font-size: medium">ToDo-List</h1>
     <hr>
     <div class="add-new-item">
-        <input type="text" v-model="newTodoText" @keyup.enter="add" placeholder="加入工作" class="new-item" />
+        <input type="text" v-model="newTodoText" @keyup.enter="add" placeholder="Add Task" class="new-item" />
     </div>
     <ul class="todo-list" v-if="!(incompleteCount === 0 && filter === 'show_all')">
         <todo-item v-for="(todo, key, index) in list" :todo="todo" :index="key"
@@ -24,15 +26,16 @@
 
         </todo-item>
     </ul>
-    <div class="msg" v-if="incompleteCount === 0 && filter === 'show_all'">完成所有的項目！</div>
+
+    <div class="msg" v-if="incompleteCount === 0 && filter === 'show_all'">Finish！</div>
 
     <div class="control">
         <a @click="setFilter('show_all')" class="btn"
-           :class="{ active: filter === 'show_all'}">全部 ({{ allCount }})</a>
+           :class="{ active: filter === 'show_all'}">Total ({{ allCount }})</a>
         <a @click="setFilter('show_completed')"
-           class="btn" :class="{ active: filter === 'show_completed'}">已完成 ({{ completedCount }})</a>
+           class="btn" :class="{ active: filter === 'show_completed'}">done ({{ completedCount }})</a>
         <a @click="setFilter('show_incomplete')"
-           class="btn" :class="{ active: filter === 'show_incomplete'}">未完成 ({{ incompleteCount }})</a>
+           class="btn" :class="{ active: filter === 'show_incomplete'}">undone ({{ incompleteCount }})</a>
     </div>
 
     <input type="hidden" v-model="todosData">
@@ -43,13 +46,38 @@
         <input type="checkbox" @change="updateStatus(todo)" :checked="todo.isCompleted">
         <label v-if="!todo.isEdit" :class="[todo.isCompleted ? 'completed' : '']">{{ todo.text }}</label>
         <input type="text" v-if="todo.isEdit" @keyup.enter="updateTodo($event, todo)" v-model="todo.text" />
-        <a @click="editTodo(todo)" v-if="!todo.isEdit" class="btn">編輯</a>
-        <a @click="remove(index)" class="btn">刪除</a>
+        <a @click="editTodo(todo)" v-if="!todo.isEdit" class="btn">Edit</a>
+        <a @click="remove(index)" class="btn">Delete</a>
     </li>
 </script>
 
 <script src="lib/vue.js"></script>
 <script src="js/script.js"></script>
+<script>
+
+    // 使用方式:
+    // showToast("標題", "提示文字") 例如:
+    // showToast("Hint", "請點一下正確的圖案");
+    function showToast(heading, message) {
+        $.toast({
+            text: message, // Text that is to be shown in the toast
+            heading: heading, // Optional heading to be shown on the toast
+            icon: 'warning', // Type of toast icon
+            showHideTransition: 'fade', // fade, slide or plain
+            allowToastClose: true, // Boolean value true or false
+            hideAfter: 2000, // false to make it sticky or number representing the miliseconds as time after which toast needs to be hidden
+            stack: 5, // false if there should be only one toast at a time or a number representing the maximum number of toasts to be shown at a time
+            position: 'top-right', // bottom-left or bottom-right or bottom-center or top-left or top-right or top-center or mid-center or an object representing the left, right, top, bottom values
+            textAlign: 'left',  // Text alignment i.e. left, right or center
+            loader: true,  // Whether to show loader or not. True by default
+            loaderBg: '#9ec600',  // Background color of the toast loader
+            beforeShow: function () { }, // will be triggered before the toast is shown
+            afterShown: function () { }, // will be triggered after the toat has been shown
+            beforeHide: function () { }, // will be triggered before the toast gets hidden
+            afterHidden: function () { }  // will be triggered after the toast has been hidden
+        });
+    }
+</script>
 
 </body>
 </html>
