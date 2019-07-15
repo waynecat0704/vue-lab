@@ -13,8 +13,8 @@
         <td>
              Inline-template.html <br />
              string-template.html <br />
-             x-template.html 
-             參考 ：  [link](https://vuejsdevelopers.com/2017/03/24/vue-js-component-templates/)
+             x-template.html  <br /><br />
+             [參考](https://vuejsdevelopers.com/2017/03/24/vue-js-component-templates/)
         </td>
     </tr>
     <tr>
